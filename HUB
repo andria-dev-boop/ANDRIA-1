@@ -4,7 +4,7 @@ local CoreGui = game:GetService("CoreGui")
 
 -- GUI
 local gui = Instance.new("ScreenGui")
-gui.Name = "TISHA"
+gui.Name = "TISHA_HUB"
 gui.IgnoreGuiInset = true
 gui.Parent = CoreGui
 
@@ -18,7 +18,7 @@ local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1,0,0,100)
 title.Position = UDim2.new(0,0,0.25,0)
 title.BackgroundTransparency = 1
-title.Text = "ANDRIA"
+title.Text = "TISHA HUB"
 title.TextColor3 = Color3.fromRGB(255,255,255)
 title.Font = Enum.Font.GothamBlack
 title.TextScaled = true
@@ -66,10 +66,10 @@ local spinner = Instance.new("ImageLabel")
 spinner.Size = UDim2.new(0,60,0,60)
 spinner.Position = UDim2.new(0.5,-30,0.65,0)
 spinner.BackgroundTransparency = 1
-spinner.Image = "rbxassetid://4965945816" -- default loading circle
+spinner.Image = "rbxassetid://4965945816"
 spinner.Parent = bg
 
--- SOUND EFFECT (put your own sound id here)
+-- SOUND EFFECT
 local sound = Instance.new("Sound")
 sound.SoundId = "rbxassetid://9118823101"
 sound.Volume = 1
@@ -96,8 +96,8 @@ task.spawn(function()
 	end
 end)
 
--- 5 MIN FILL BAR
-local duration = 300
+-- LOADING BAR (now faster: 10 seconds instead of 5 minutes)
+local duration = 10
 local steps = 100
 
 for i = 1, steps do
@@ -111,10 +111,4 @@ for i = 1, steps do
 		{Size = UDim2.new(progress, 0, 1, 0)}
 	):Play()
 
-	task.wait(duration / steps)
-end
-
-loadingText.Text = "Loaded!"
-task.wait(2)
-
-gui:Destroy()
+	task.wait(duration /
